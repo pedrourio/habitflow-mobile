@@ -1,7 +1,7 @@
 // app/login.tsx
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { InputItem, Button, Provider, Toast } from '@ant-design/react-native';
+import { InputItem, Button, Toast } from '@ant-design/react-native';
 import api from '../src/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
@@ -40,7 +40,6 @@ export default function LoginScreen() {
   };
 
   return (
-    <Provider>
       <View style={styles.container}>
         <Text style={styles.title}>HabitFlow</Text>
         <InputItem
@@ -71,7 +70,6 @@ export default function LoginScreen() {
           Entrar
         </Button>
       </View>
-    </Provider>
   );
 }
 
