@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Pressable, Text} from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -32,7 +32,8 @@ export default function TabLayout() {
           title: 'Tab One',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
-            <><Link href="/modal" asChild>
+            <Link href="/modal" asChild>
+              <Text>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
@@ -42,17 +43,8 @@ export default function TabLayout() {
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }} />
                 )}
               </Pressable>
-            </Link><Link href="/login">
-                <Pressable>
-                  {({ pressed }) => (
-                    <FontAwesome
-                      name="git-square"
-                      size={25}
-                      color={Colors[colorScheme ?? 'light'].text}
-                      style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }} />
-                  )}
-                </Pressable>
-              </Link></>
+              </Text>
+            </Link>
             
           ),
         }}

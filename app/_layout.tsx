@@ -4,13 +4,12 @@ import { Provider } from '@ant-design/react-native';
 
 export default function RootLayout() {
   return (
+    // O Provider do AntD fica aqui, no topo de tudo
     <Provider>
-    <Stack>
-      {/* A tela de abas principal, o cabeçalho dela está escondido */}
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      {/*tela de login, que será apresentada como um modal */}
-      <Stack.Screen name="login" options={{ presentation: 'modal', title: 'Login' }} />
-    </Stack>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(auth)" />
+      </Stack>
     </Provider>
   );
 }

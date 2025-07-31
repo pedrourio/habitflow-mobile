@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { InputItem, Button, Toast } from '@ant-design/react-native';
-import api from '../src/services/api';
+import api from '../../src/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 
@@ -27,7 +27,7 @@ export default function LoginScreen() {
       if (token) {
         await AsyncStorage.setItem('token', token);
         Toast.success('Login bem-sucedido!');
-        router.replace('/(tabs)'); // Navega para a tela principal de abas
+        router.replace('/(tabs)/dashboard'); // Navega para a tela principal de abas
       } else {
         Toast.fail('Token não encontrado na resposta.');
       }
