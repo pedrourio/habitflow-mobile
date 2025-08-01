@@ -14,7 +14,7 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Toast.fail('Por favor, preencha e-mail e senha.');
+            Toast.fail('Por favor, preencha e-mail e senha.', 0.3);
       return;
     }
     setLoading(true);
@@ -26,14 +26,14 @@ export default function LoginScreen() {
       const token = response.headers.authorization;
       if (token) {
         await AsyncStorage.setItem('token', token);
-        Toast.success('Login bem-sucedido!');
+                Toast.success('Login bem-sucedido!', 0.3);
         router.replace('/(tabs)/dashboard'); // Navega para a tela principal de abas
       } else {
-        Toast.fail('Token não encontrado na resposta.');
+                Toast.fail('Token não encontrado na resposta.', 0.3);
       }
     } catch (error) {
       console.error(error);
-      Toast.fail('E-mail ou senha inválidos.');
+            Toast.fail('E-mail ou senha inválidos.', 0.3);
     } finally {
       setLoading(false);
     }
